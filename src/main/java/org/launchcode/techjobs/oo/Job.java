@@ -40,6 +40,22 @@ public class Job {
         return Objects.hash(id);
     }
 
+    @Override
+    public String toString() {
+        String reply = new String();
+        reply = '\n' + "ID: " + this.id + '\n' + "Name: " + this.name + '\n' + "Employer: " + this.employer + '\n' + "Location: " + this.location + '\n' + "Position Type: " + this.positionType + '\n' + "Core Competency: " + this.coreCompetency +'\n';
+
+//        technically a company, city, etc., could have null as part of their name, so this option isn't as versatile as it could be
+
+        if (reply.contains("null")) {
+            String replyReplace = reply.replace("null", "Data not available");
+            return replyReplace;
+        } else {
+            return reply;
+        }
+
+    }
+
     public int getId() {
         return id;
     }
@@ -83,4 +99,6 @@ public class Job {
     public void setCoreCompetency(CoreCompetency coreCompetency) {
         this.coreCompetency = coreCompetency;
     }
+
+
 }
