@@ -50,20 +50,25 @@ public class Job {
         String replyPositionType = new String('\n' + "Position Type: " + this.positionType);
         String replyCoreCompetency = new String('\n' + "Core Competency: " + this.coreCompetency +'\n');
 
-        if (this.employer.toString() == "") {
-            replyEmployer = '\n' + "Employer: Data not available";
-        }
-        if (this.location.toString() == "") {
-            replyLocation = '\n' + "Location: Data not available";
-        }
-        if (this.positionType.toString() == "") {
-            replyPositionType = '\n' + "Position Type: Data not available";
-        }
-        if (this.coreCompetency.toString() == "") {
-            replyCoreCompetency = '\n' + "Core Competency: Data not available" +'\n';
-        }
+        if (this.employer.toString() == "" && this.location.toString() == "" && this.positionType.toString() == "" && this.coreCompetency.toString() == "") {
+            reply = "OOPS! This job does not seem to exist.";
+        } else {
 
-        reply = replyId + replyName + replyEmployer + replyLocation + replyPositionType + replyCoreCompetency;
+            if (this.employer.toString() == "") {
+                replyEmployer = '\n' + "Employer: Data not available";
+            }
+            if (this.location.toString() == "") {
+                replyLocation = '\n' + "Location: Data not available";
+            }
+            if (this.positionType.toString() == "") {
+                replyPositionType = '\n' + "Position Type: Data not available";
+            }
+            if (this.coreCompetency.toString() == "") {
+                replyCoreCompetency = '\n' + "Core Competency: Data not available" + '\n';
+            }
+
+            reply = replyId + replyName + replyEmployer + replyLocation + replyPositionType + replyCoreCompetency;
+        }
         return reply;
     }
 
