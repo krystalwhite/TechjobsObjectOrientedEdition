@@ -43,10 +43,6 @@ public class Job {
     @Override
     public String toString() {
         String reply = new String();
-
-//        check whether individual object's toString is empty instead of checking for null
-
-//maybe try getDeclaredFields() ??
         String replyId = new String('\n' + "ID: " + this.id);
         String replyName = new String('\n' + "Name: " + this.name);
         String replyEmployer = new String('\n' + "Employer: " + this.employer);
@@ -54,37 +50,20 @@ public class Job {
         String replyPositionType = new String('\n' + "Position Type: " + this.positionType);
         String replyCoreCompetency = new String('\n' + "Core Competency: " + this.coreCompetency +'\n');
 
-/*
-//        these if statements are never triggering for some reason
-        if (this.id == null) {
-            replyName = '\n' + "Name: Data not available";
-        }
-        if (this.employer == null) {
+        if (this.employer.toString() == "") {
             replyEmployer = '\n' + "Employer: Data not available";
         }
-        if (this.location == null) {
+        if (this.location.toString() == "") {
             replyLocation = '\n' + "Location: Data not available";
         }
-        if (this.positionType == null) {
+        if (this.positionType.toString() == "") {
             replyPositionType = '\n' + "Position Type: Data not available";
         }
-        if (this.coreCompetency == null) {
+        if (this.coreCompetency.toString() == "") {
             replyCoreCompetency = '\n' + "Core Competency: Data not available" +'\n';
-        }*/
-//
-//
-//
+        }
+
         reply = replyId + replyName + replyEmployer + replyLocation + replyPositionType + replyCoreCompetency;
-
-
-//        technically a company, city, etc., could have the characters null as part of their name, so this option isn't as versatile as it could be
-//        reply = '\n' + "ID: " + this.id + '\n' + "Name: " + this.name + '\n' + "Employer: " + this.employer + '\n' + "Location: " + this.location + '\n' + "Position Type: " + this.positionType + '\n' + "Core Competency: " + this.coreCompetency +'\n';
-//        if (reply.contains("null")) {
-//            String replyReplace = reply.replace("null", "Data not available");
-//            return replyReplace;
-//        } else {
-//            return reply;
-//        }
         return reply;
     }
 
